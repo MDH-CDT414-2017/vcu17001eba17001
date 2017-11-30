@@ -143,4 +143,35 @@ public class BowlingGameTest extends TestCase {
 		BowlingGame bowlingGame = new BowlingGame("[9,5][3,6][7,2][3,6][4,4][5,3][3,3][4,5][8,1][2,8][10]");
 		assertEquals(-1, bowlingGame.getScore());
 	}
+	
+	//added 4 tests after the ultimate testing
+	public void testUltimate() { 
+		BowlingGame bowlingGame = new BowlingGame("[2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][10,0]"); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
+	
+	public void testUltimate02() { 
+		BowlingGame bowlingGame = new BowlingGame(null); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
+	
+	public void testUltimate03() { 
+		BowlingGame bowlingGame = new BowlingGame("[2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4]"); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
+	
+	public void testUltimate04() { 
+		BowlingGame bowlingGame = new BowlingGame("[2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][2,4][6,4][2,4]"); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
+	
+	public void testUltimate05() { 
+		BowlingGame bowlingGame = new BowlingGame("[4,4][4,4][4,4][4,4][4,4][4,4][4,4][4,4][4,4][6,4][4,0]"); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
+	
+	public void testUltimate06() { 
+		BowlingGame bowlingGame = new BowlingGame("[4,4][4,4][4,4][4,4][4,4][4,4][4,4][4,4][4,4][6,4]"); 
+		assertEquals(-1, bowlingGame.getScore());
+	}
 }

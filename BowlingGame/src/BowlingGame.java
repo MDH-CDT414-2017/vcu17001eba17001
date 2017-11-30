@@ -82,9 +82,13 @@ public class BowlingGame {
 		// return(-1);
 		if (!checkStringFormat(this.game) && !checkLastStrikeFormat(this.game) && !checkLastSpareFormat(this.game)) {
 			return -1;
-		}
+		}		
 		
 		getFinalFrameList(this.game);
+		
+		if(!checkExtraThrow(this.frameList)) {
+			return -1;
+		}
 
 		int score = 0;
 
@@ -139,19 +143,91 @@ public class BowlingGame {
 		return sum;
 	}
 
+	//checks if the extra throw was done
+	public boolean checkExtraThrow(List<Frame> listOfFrames) {
+		
+		if(checkStringFormat(this.game)) {
+			Frame ultimate = listOfFrames.get(9);
+			if(ultimate.isSpare() || ultimate.isStrike()) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		} else if(checkLastSpareFormat(this.game)) {
+			Frame penultimate = listOfFrames.get(9);
+			if(penultimate.isSpare()) {
+				return true;
+			}
+			
+		} else {
+			Frame penultimate = listOfFrames.get(9);
+			if(penultimate.isStrike()) {
+				return true;
+			}
+			
+		}
+		
+		return false; 
+			
+		
+		
+		
+//		if(listOfFrames.size()==10) {
+//			Frame ultimate = listOfFrames.get(9);
+//			if(ultimate.isSpare() || ultimate.isStrike()) {
+//				return false;
+//			}
+//			else {
+//				return true;
+//			}			
+//		}		
+//		
+////		return true;
+//		else {
+//			Frame penultimate = listOfFrames.get(9);
+//			Frame ultimate = listOfFrames.get(10);
+//			
+//			if(penultimate.isSpare() && ultimate.getScore2() != 0 ) {
+//				return false;
+//			}
+//							
+//			if(penultimate.isSpare() || penultimate.isStrike()){
+//				return true;
+//			}
+//			else {
+//				return false;
+//			}
+//			
+//		}
+	}
+	
+	
 	//checks the format of the input string
 	public boolean checkStringFormat(String game) {
-		return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}");
+		if(game != null) {
+			return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}");
+		}
+		
+		return false;		
 	}
 
 	//checks the format of the input string when the last frame was a strike
 	public boolean checkLastStrikeFormat(String game) {
-		return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}\\[([0-9]|10),([0-9]|10)\\]");
+		if(game != null) {
+			return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}\\[([0-9]|10),([0-9]|10)\\]");
+		}
+		
+		return false;
 	}
 
 	//checks the string input format when the last frame was a spare
 	public boolean checkLastSpareFormat(String game) {
-		return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}\\[([0-9]|10)\\]");
+		if(game != null) {
+			return game.matches("(\\[([0-9]|10),([0-9]|10)\\]){10}\\[([0-9]|10)\\]");
+		}
+		
+		return false;		
 	}
 
 	//checks if the frame is correct by checking if the sum of the two scores/throws is 10 
