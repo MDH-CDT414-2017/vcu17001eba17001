@@ -22,10 +22,6 @@ public class Frame {
 		this.spare = spare;
 	}
 
-	@Override
-	public String toString() {
-		return "Frame [score1=" + score1 + ", score2=" + score2 + ", strike=" + strike + ", spare=" + spare + "]";
-	}
 
 	public int getScore1() {
 		return score1;

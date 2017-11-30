@@ -138,4 +138,9 @@ public class BowlingGameTest extends TestCase {
 		assertEquals(93, bowlingGame.getScore());
 	}
 	
+	//added test during the coverage test
+	public void testCoverage() {
+		BowlingGame bowlingGame = new BowlingGame("[9,5][3,6][7,2][3,6][4,4][5,3][3,3][4,5][8,1][2,8][10]");
+		assertEquals(-1, bowlingGame.getScore());
+	}
 }
