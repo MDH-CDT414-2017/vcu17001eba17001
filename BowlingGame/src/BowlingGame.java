@@ -120,8 +120,7 @@ public class BowlingGame {
 		
 		if (checkStrike(this.frameList.get(index))) {
 			sum = sum + 10 + this.frameList.get(index + 1).getScore1();
-		}
-		else {
+		} else {
 			sum = sum + getScoreOpen(this.frameList.get(index));
 		}
 		
@@ -150,8 +149,7 @@ public class BowlingGame {
 			Frame ultimate = listOfFrames.get(9);
 			if(ultimate.isSpare() || ultimate.isStrike()) {
 				return false;
-			}
-			else {
+			} else {
 				return true;
 			}
 		} else if(checkLastSpareFormat(this.game)) {
@@ -170,36 +168,6 @@ public class BowlingGame {
 		
 		return false; 
 			
-		
-		
-		
-//		if(listOfFrames.size()==10) {
-//			Frame ultimate = listOfFrames.get(9);
-//			if(ultimate.isSpare() || ultimate.isStrike()) {
-//				return false;
-//			}
-//			else {
-//				return true;
-//			}			
-//		}		
-//		
-////		return true;
-//		else {
-//			Frame penultimate = listOfFrames.get(9);
-//			Frame ultimate = listOfFrames.get(10);
-//			
-//			if(penultimate.isSpare() && ultimate.getScore2() != 0 ) {
-//				return false;
-//			}
-//							
-//			if(penultimate.isSpare() || penultimate.isStrike()){
-//				return true;
-//			}
-//			else {
-//				return false;
-//			}
-//			
-//		}
 	}
 	
 	
@@ -234,8 +202,7 @@ public class BowlingGame {
 	public boolean checkSum(Frame frameTest) {
 		if (frameTest.getScore1() + frameTest.getScore2() > 10) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
